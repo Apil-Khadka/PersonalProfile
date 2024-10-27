@@ -21,3 +21,11 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+
+aaa-artisian-migrate.php
+aaa-composer-install.log
+aaa-composer-install.php
+aaa-composer.phar
+aaa-script-check.php
+
