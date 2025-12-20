@@ -1,0 +1,145 @@
+---
+import "../styles/global.css";
+import { resume } from "../data/resume";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = `${resume.personalInfo.name} - ${resume.personalInfo.role}`,
+    description = resume.personalInfo.summary,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+
+        <!-- SEO -->
+        <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={resume.personalInfo.avatar} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={resume.personalInfo.avatar} />
+
+        <!-- Preload Inter Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Theme Script to prevent flash -->
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+            document.documentElement.setAttribute("data-theme", theme);
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container flex-between">
+                <a href="/" class="logo text-mono font-bold"
+                    >{resume.personalInfo.name}</a
+                >
+                <nav class="nav">
+                    <ul class="flex-center">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><ThemeToggle /></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <slot />
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    &copy; {new Date().getFullYear()}
+                    {resume.personalInfo.name}. Built with Astro.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
+
+<style>
+    .header {
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background-color: var(--color-bg);
+        z-index: 10;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .logo {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .nav ul {
+        margin: 0;
+        padding: 0;
+        gap: var(--space-6);
+    }
+
+    .nav a {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    .nav a:hover {
+        color: var(--color-text-main);
+    }
+
+    .footer {
+        padding: var(--space-8) 0;
+        margin-top: auto;
+        border-top: 1px solid var(--color-border);
+        text-align: center;
+    }
+
+    .footer p {
+        font-size: 0.875rem;
+        margin: 0;
+    }
+</style>

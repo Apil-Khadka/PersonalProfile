@@ -1,0 +1,51 @@
+---
+import { resume } from "../data/resume";
+---
+
+<section id="projects" class="section">
+  <div class="container">
+    <h3>Featured Projects</h3>
+    
+    <div class="grid projects-grid">
+      {resume.projects.map(project => (
+        <article class="card project-card">
+          <header>
+            <div class="flex-between">
+              <h4>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  {project.title}
+                </a>
+              </h4>
+              <a href={project.link} class="text-sm text-primary" target="_blank" rel="noopener noreferrer">View Code &rarr;</a>
+            </div>
+            <div class="tech-stack flex">
+                {project.tech.map(t => <span class="text-mono text-sm text-muted">{t}</span>)}
+            </div>
+          </header>
+          <p>{project.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .project-card header {
+    margin-bottom: var(--space-3);
+  }
+
+  .project-card h4 a {
+    text-decoration: none;
+  }
+  
+  .tech-stack {
+    margin-top: var(--space-2);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    gap: var(--space-3);
+  }
+</style>

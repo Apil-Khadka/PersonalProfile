@@ -1,0 +1,304 @@
+---
+import { resume } from "../data/resume";
+---
+
+<section id="hero" class="section hero animate-in">
+    <div class="container hero-wrapper">
+        <div class="hero-top flex-between">
+            <div class="hero-content">
+                <span class="eyebrow text-primary text-mono">Hello, I'm</span>
+                <h1>{resume.personalInfo.name}</h1>
+                <h2 class="role">{resume.personalInfo.role}</h2>
+
+                <p class="summary">{resume.personalInfo.summary}</p>
+
+                <div class="actions">
+                    <a href="#projects" class="btn">View Projects</a>
+                </div>
+
+                <div class="social-section">
+                    <span class="social-label text-mono">Get in touch</span>
+                    <div class="socials flex">
+                        <a
+                            href={resume.personalInfo.socials.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="GitHub"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                ></path></svg
+                            >
+                            <span>GitHub</span>
+                        </a>
+                        <a
+                            href={resume.personalInfo.socials.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="LinkedIn"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                                ></path><rect x="2" y="9" width="4" height="12"
+                                ></rect><circle cx="4" cy="4" r="2"
+                                ></circle></svg
+                            >
+                            <span>LinkedIn</span>
+                        </a>
+                        <a
+                            href={`mailto:${resume.personalInfo.email}`}
+                            class="social-link"
+                            aria-label="Email"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path
+                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                ></path><polyline points="22,6 12,13 2,6"
+                                ></polyline></svg
+                            >
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src={resume.personalInfo.avatar}
+                    alt={resume.personalInfo.name}
+                />
+            </div>
+        </div>
+
+        <div class="github-chart">
+            <img
+                class="chart-light"
+                src="https://ghchart.rshah.org/2563eb/apil-khadka"
+                alt="Apil Khadka's Github Chart"
+            />
+            <img
+                class="chart-dark"
+                src="https://ghchart.rshah.org/3b82f6/apil-khadka"
+                alt="Apil Khadka's Github Chart"
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        padding-top: var(--space-8);
+    }
+
+    .hero-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        width: 100%;
+    }
+
+    .hero-top {
+        width: 100%;
+        gap: var(--space-12);
+    }
+
+    .flex-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hero-content {
+        flex: 1;
+    }
+
+    .hero-image {
+        flex-shrink: 0;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid var(--color-bg-subtle);
+        box-shadow: 0 0 0 1px var(--color-border);
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+    }
+
+    .eyebrow {
+        display: block;
+        margin-bottom: var(--space-2);
+        font-size: 1.75rem; /* Further increased */
+        font-weight: 600;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: var(--space-2);
+        line-height: 1.1;
+    }
+
+    .role {
+        font-size: 1.5rem;
+        color: var(--color-text-muted);
+        font-weight: 400;
+    }
+
+    .summary {
+        max-width: 60ch;
+        font-size: 1.125rem;
+        margin-top: var(--space-4);
+        margin-bottom: var(--space-8);
+    }
+
+    .actions {
+        margin-bottom: var(--space-8);
+    }
+
+    .social-section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        padding: var(--space-4);
+        background-color: var(--color-bg-subtle);
+        border-radius: var(--space-2);
+        border: 1px solid var(--color-border);
+    }
+
+    .social-label {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        color: var(--color-primary); /* Highlighted */
+    }
+
+    .socials {
+        gap: var(--space-3);
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-6);
+        border-radius: 9999px;
+        border: 2px solid var(--color-border); /* Thicker border */
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .social-link:hover {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .hero-top {
+            flex-direction: column-reverse;
+            text-align: center;
+            gap: var(--space-8);
+            align-items: center; /* Ensure centering */
+        }
+
+        .flex-between {
+            flex-direction: column-reverse; /* Ensure fallback */
+        }
+
+        .hero-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .actions {
+            justify-content: center;
+        }
+
+        .social-section {
+            align-items: center;
+        }
+
+        .socials {
+            justify-content: center;
+        }
+
+        .summary {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    /* GitHub Chart Styles */
+    .github-chart {
+        margin-top: var(--space-12);
+        opacity: 0.9;
+        max-width: 100%;
+    }
+
+    .github-chart img {
+        width: 100%;
+        height: auto;
+        display: none; /* Hidden by default */
+    }
+
+    /* Keep specificity high to override display: none */
+    :global(html[data-theme="light"]) .chart-light {
+        display: block !important;
+    }
+
+    :global(html[data-theme="dark"]) .chart-dark {
+        display: block !important;
+    }
+
+    /* Fallback if no theme is set yet */
+    :global(html:not([data-theme])) .chart-light {
+        display: block !important;
+    }
+</style>

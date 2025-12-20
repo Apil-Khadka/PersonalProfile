@@ -1,0 +1,24 @@
+---
+import { resume } from "../data/resume";
+---
+
+<section id="contact" class="section">
+  <div class="container">
+    <h3>Get In Touch</h3>
+    <p>
+      I'm always open to discussing backend engineering, distributed systems, or potential collaborations.
+    </p>
+    
+    <div class="links flex">
+      <a href={`mailto:${resume.personalInfo.email}`} class="btn">Email Me</a>
+      <a href={resume.personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+      <a href={resume.personalInfo.socials.github} target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<style>
+    .links {
+        margin-top: var(--space-6);
+    }
+</style>

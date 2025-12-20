@@ -1,0 +1,76 @@
+---
+import { resume } from "../data/resume";
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <h3>Experience</h3>
+    
+    <div class="timeline">
+      {resume.experience.map(job => (
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <h4>{job.title}</h4>
+            <span class="company text-primary">{job.company}</span>
+          </div>
+          <p class="description">{job.description}</p>
+          <ul class="achievements">
+            {job.achievements.map(achievement => <li>{achievement}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    border-left: 2px solid var(--color-border);
+    padding-left: var(--space-6);
+    margin-left: var(--space-2);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: var(--space-8);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--space-6) * -1 - 5px); /* Adjust to align with line */
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-bg);
+  }
+  
+  .timeline-item:last-child {
+      padding-bottom: 0;
+  }
+
+  .timeline-header {
+    margin-bottom: var(--space-2);
+  }
+
+  .company {
+      display: block;
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+      font-size: 0.95rem;
+  }
+
+  .achievements {
+    list-style: disc;
+    padding-left: var(--space-4);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+  
+  .achievements li {
+      margin-bottom: var(--space-1);
+  }
+</style>
