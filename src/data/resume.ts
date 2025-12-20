@@ -1,8 +1,8 @@
 export const resume = {
   personalInfo: {
     name: "Apil Khadka",
-    role: "Backend Engineer / Software Engineer (Backend-focused)",
-    email: "apilkhadka2020@gmail.com",
+    role: "Software Engineer (Backend-focused)",
+    email: "contact@apilkhadka.com.np",
     phone: "+977 9864782896",
     location: "Patan, Balkumari, Nepal",
     avatar: "https://res.cloudinary.com/dglsdyi9e/image/upload/v1766247919/qpcmhwwohdu77mjf33v1.jpg",
