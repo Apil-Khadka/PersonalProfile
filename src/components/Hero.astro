@@ -1,5 +1,10 @@
 ---
 import { resume } from "../data/resume";
+
+const optimizedAvatar = resume.personalInfo.avatar.replace(
+  "/upload/",
+  "/upload/f_auto,q_auto,g_auto:face,w_420,h_480,c_fill/"
+);
 ---
 
 <section id="hero" class="section hero animate-in">
@@ -94,7 +99,15 @@ import { resume } from "../data/resume";
       </div>
 
       <div class="hero-image">
-        <img src={resume.personalInfo.avatar} alt={resume.personalInfo.name} />
+        <img
+          src={optimizedAvatar}
+          width="220"
+          height="220"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          alt={resume.personalInfo.name}
+        />
       </div>
     </div>
 
@@ -210,7 +223,7 @@ import { resume } from "../data/resume";
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 70%;
     display: block;
   }
 
@@ -283,7 +296,8 @@ import { resume } from "../data/resume";
   }
 
   .socials {
-    gap: var(--space-3);
+    gap: var(--space-3) var(--space-4);
+    justify-content: center;
     flex-wrap: wrap;
   }
 

@@ -13,6 +13,11 @@ const {
   description = resume.personalInfo.summary,
 } = Astro.props;
 
+const optimizedAvatar = resume.personalInfo.avatar.replace(
+  "/upload/",
+  "/upload/f_auto,q_auto,w_420,h_420,c_fill/"
+);
+
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(resume.personalInfo.avatar, Astro.site);
 ---
@@ -23,10 +28,18 @@ const ogImageUrl = new URL(resume.personalInfo.avatar, Astro.site);
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/fonts/favicon.ico" />
     <link
       rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><rect width='128' height='128' fill='%2300d9ff'/><text x='64' y='85' font-size='80' font-weight='bold' font-family='system-ui' fill='white' text-anchor='middle'>A</text></svg>"
+      type="image/png"
+      sizes="32x32"
+      href="/fonts/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/fonts/favicon-16x16.png"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -53,10 +66,27 @@ const ogImageUrl = new URL(resume.personalInfo.avatar, Astro.site);
     <!-- Preload Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap"
+      />
+    </noscript>
+
+    <link rel="preload" as="image" href={optimizedAvatar} />
 
     <!-- Theme Script to prevent flash -->
     <script is:inline>
