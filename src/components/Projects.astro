@@ -40,16 +40,20 @@ import { resume } from "../data/resume";
                 ))}
               </ul>
             )}
-            {(project.links?.github || project.links?.live) && (
+            {(project.links?.github ||
+              project.links?.live ||
+              project.links?.backend ||
+              project.links?.frontend ||
+              project.links?.demo) && (
               <div class="project-links">
-                {project.links?.github && (
+                {project.links?.demo && (
                   <a
-                    href={project.links.github}
+                    href={project.links.demo}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="link-btn"
                   >
-                    GitHub →
+                    Live Demo →
                   </a>
                 )}
                 {project.links?.live && (
@@ -60,6 +64,36 @@ import { resume } from "../data/resume";
                     class="link-btn"
                   >
                     Live Site →
+                  </a>
+                )}
+                {project.links?.backend && (
+                  <a
+                    href={project.links.backend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-btn"
+                  >
+                    Backend →
+                  </a>
+                )}
+                {project.links?.frontend && (
+                  <a
+                    href={project.links.frontend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-btn"
+                  >
+                    Frontend →
+                  </a>
+                )}
+                {project.links?.github && (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-btn"
+                  >
+                    GitHub →
                   </a>
                 )}
               </div>

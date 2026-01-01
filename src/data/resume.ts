@@ -79,7 +79,10 @@ export const resume = {
         "Integrated Firebase Authentication for secure user access.",
         "Implemented Firestore synchronization for backup and multi-device data consistency.",
         "Designed data flow enabling seamless synchronization between local storage and cloud backend."
-      ]
+      ],
+      links: {
+        github: "https://github.com/Aspiring-Creators-Nightingale/AichoPaicho"
+      }
     },
     {
       title: "TEDxNCIT 2026 — Event Management Platform",
@@ -92,8 +95,8 @@ export const resume = {
         "Maintained version control and deployed updates to the live environment."
       ],
       links: {
-        live: "https://tedx.ncit.edu.np/",
-        github: "https://github.com/Apil-Khadka/TEDxNCIT_2026"
+        live: "https://tedxncit.com/",
+        github: "https://github.com/Apil-Khadka"
       }
     },
     {
@@ -109,7 +112,11 @@ export const resume = {
         "Developed feature allowing guides to add tourist attractions and tours with location-based pricing.",
         "Built booking workflow with time-slot validation and conflict prevention.",
         "Developed React Native + TypeScript frontend with separate dashboards for tourists and guides."
-      ]
+      ],
+      links: {
+        backend: "https://gitlab.com/aspiring-creators/toura",
+        frontend: "https://gitlab.com/aspiring-creators/toura_frontend"
+      }
     },
     {
       title: "Medimanage — Hospital Operations Management",
@@ -122,7 +129,11 @@ export const resume = {
         "Implemented role-based access control for administrators, doctors, nurses, and reception staff.",
         "Built appointment scheduling with conflict detection and availability management.",
         "Developed Vue.js frontend with department-specific dashboards and real-time updates."
-      ]
+      ],
+      links: {
+        backend: "https://github.com/Apil-Khadka/Hospital-Management-System",
+        frontend: "https://github.com/Apil-Khadka/Hospital-Management-System-Frontend"
+      }
     },
     {
       title: "AccProBook — Business Financial Transaction Management",
@@ -159,7 +170,7 @@ export const resume = {
     },
     {
       title: "MedicMitra — Multi-language Medicine Information",
-      period: "2024",
+      period: "2025",
       tech: ["Spring Boot", "MySQL", "React"],
       description: "Developed medicine information platform supporting multiple languages.",
       achievements: [
@@ -167,7 +178,11 @@ export const resume = {
         "Designed MySQL schema supporting dynamic translations with data consistency.",
         "Implemented search functionality with category-based filtering.",
         "Built React interface with seamless language switching and responsive design."
-      ]
+      ],
+      links: {
+        backend: "https://github.com/Apil-Khadka/MedicMitra_Backend",
+        frontend: "https://github.com/Apil-Khadka/MedicMitra_Frontend"
+      }
     },
     {
       title: "Blog Manager — Content Publishing Platform",
@@ -179,7 +194,10 @@ export const resume = {
         "Implemented CRUD operations for posts, categories, and comments.",
         "Enforced role-based authorization for content publishing and moderation.",
         "Optimized MySQL queries for pagination and efficient content retrieval."
-      ]
+      ],
+      links: {
+        github: "https://github.com/Apil-Khadka/Java_Blog_Manager"
+      }
     }
   ]
 };
