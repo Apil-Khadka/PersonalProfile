@@ -1,151 +1,185 @@
 export const resume = {
   personalInfo: {
     name: "Apil Khadka",
-    role: "Software Engineer (Backend-focused)",
-    email: "contact@apilkhadka.com.np",
+    role: "Backend Developer",
+    email: "apil@apilkhadka.com.np",
     phone: "+977 9864782896",
-    location: "Patan, Balkumari, Nepal",
+    location: "Dhobighat, Lalitpur",
+    website: "apilkhadka.com.np",
     avatar: "https://res.cloudinary.com/dglsdyi9e/image/upload/v1766247919/qpcmhwwohdu77mjf33v1.jpg",
     socials: {
       linkedin: "https://www.linkedin.com/in/apil-khadka/",
       github: "https://github.com/Apil-Khadka"
     },
-    summary: "Highly adaptive Backend Engineer with a strong focus on scalable systems, RESTful API design, and clean architecture. Experienced in building robust backend solutions for financial, healthcare, and event management domains. Passionate about database optimization, distributed systems, and modern backend practices."
+    summary: "Backend-oriented full-stack developer experienced in building secure, scalable systems with Spring Boot and Laravel, complemented by modern frontend frameworks such as React and Vue. Designed and implemented RESTful APIs, role-based authentication, and relational database schemas across 5+ projects. Strong understanding of system design, API security, and Linux server administration."
   },
   skills: {
+    languages: ["Java", "PHP", "JavaScript", "TypeScript", "Kotlin"],
     backend: [
-      "PHP (Object-Oriented Programming)",
-      "Laravel Framework",
-      "Spring Boot (Java)",
-      "RESTful API Design",
-      "MVC Architecture",
-      "System Design"
-    ],
-    database: [
-      "MySQL",
-      "PostgreSQL",
-      "Database Design & Normalization",
-      "Query Optimization"
-    ],
-    infrastructure: [
-      "Linux Server Administration",
-      "VPS Deployment",
-      "Nginx/Apache Configuration",
-      "Git & Version Control",
-      "CI/CD Pipelines (Basic)",
-      "Docker",
-      "Kubernetes (Basic)"
+      "Spring Boot",
+      "Laravel",
+      "RESTful APIs"
     ],
     frontend: [
-      "JavaScript (ES6+)",
-      "React.js",
-      "Vue.js",
-      "HTML5 & CSS3",
-      "Astro"
-    ]
+      "React",
+      "Vue",
+      "Astro",
+      "Next.js",
+      "TailwindCSS"
+    ],
+    database: [
+      "PostgreSQL",
+      "MySQL",
+      "Redis"
+    ],
+    devops: [
+      "Linux",
+      "Docker",
+      "Git",
+      "Nginx",
+      "VPS management"
+    ],
+    cloud: ["Firebase", "Azure basics"]
   },
   experience: [
     {
-      title: "Full-Stack Developer & DevOps Engineer",
-      company: "TEDxNCIT 2026 — Event Management Website",
-      period: "Project",
+      title: "Technical Lead",
+      company: "TEDxNCIT",
+      period: "Aug 2025 - Jan 2026",
+      location: "Balkumari, Lalitpur",
       links: {
         live: "https://tedx.ncit.edu.np/",
         github: "https://github.com/Apil-Khadka/TEDxNCIT_2026"
       },
-      description: "Led the refurbishment and deployment of the official event website. Focused on server-side configuration and performance optimization.",
+      description: "Led end-to-end development and deployment of the event site serving hundreds.",
       achievements: [
-        "Configured and deployed application to a Linux VPS, managing domain SSL and security.",
-        "Refactored legacy codebase for improved maintainability and production readiness.",
-        "Optimized server response times and implemented static asset caching."
+        "Built site with Astro, TypeScript and Tailwind; maintained Linux VPS, Nginx, SSL (Let's Encrypt).",
+        "Implemented automated deployment (Git hooks), achieving zero-downtime updates and 95+ Lighthouse scores."
       ],
-      tech: ["Astro", "TypeScript", "Linux VPS", "Nginx"]
-    },
-    {
-      title: "Backend Developer",
-      company: "AccProBook — Financial Management System",
-      period: "Hackathon Project",
-      links: {
-        demo: "https://lavapp.helioho.st/",
-        github: "https://github.com/Apil-Khadka/AccProBook"
-      },
-      description: "Architected the core financial transaction engine for a business management platform.",
-      achievements: [
-        "Designed and implemented a pure PHP MVC framework from scratch to understand core architectural patterns.",
-        "Built a complete RESTful API for handling complex transaction types (credits, debits, invoices).",
-        "Integrated automated PDF generation for real-time financial reporting."
-      ],
-      tech: ["Vanilla PHP", "MySQL", "MVC Pattern", "REST API"]
-    },
-    {
-      title: "Laravel Backend API Developer",
-      company: "Medimanage — Hospital Management System",
-      period: "Project",
-      links: {
-        github: "https://github.com/Apil-Khadka/Hospital-Management-System"
-      },
-      description: "Developed a secure and scalable backend API for a comprehensive hospital information system.",
-      achievements: [
-        "Designed a normalized database schema to handle complex relationships between patients, staff, and medical records.",
-        "Implemented role-based authentication (RBAC) and data authorization policies.",
-        "Optimized API endpoints to handle concurrent requests efficiently."
-      ],
-      tech: ["Laravel", "MySQL", "API Security", "Vue.js Integration"]
-    },
-    {
-      title: "Full-Stack Developer",
-      company: "CourseManager — Educational Platform",
-      period: "Project",
-      links: {
-        github: "https://github.com/Apil-Khadka/Course-Manager"
-      },
-      description: "Built a course management platform with assessment capabilities.",
-      achievements: [
-        "Designed the database schema for hierarchical course content (Courses > Modules > Lessons).",
-        "Developed a quiz engine with automated grading and result tracking.",
-        "Created a unified API layer to serve the React frontend."
-      ],
-      tech: ["Laravel", "React.js", "MySQL"]
+      tech: ["Astro", "TypeScript", "TailwindCSS", "Linux VPS", "Git"]
     }
   ],
   education: [
     {
-      degree: "Bachelor of Computer Engineering",
+      degree: "Bachelor in Computer Engineering",
       institution: "Nepal College of Information Technology (NCIT)",
-      period: "2023 – 2028 (Expected)",
-      details: "Focus on Software Engineering, Database Systems, and Distributed Computing."
+      location: "Balkumari, Lalitpur",
+      period: "2023 – Present"
     }
   ],
   projects: [
     {
-      title: "Blog Manager",
-      tech: ["Java", "Spring Boot", "REST API"],
-      description: "A robust backend API for content management with secure authentication and CRUD operations. Explored Spring Boot's dependency injection and security modules.",
-      link: "https://github.com/Apil-Khadka/Java_Blog_Manager"
+      title: "AichoPaicho — Personal Transaction Tracker",
+      period: "Sep 2025 – Nov 2025",
+      tech: ["Kotlin", "Android", "Firebase", "Firestore"],
+      description: "Developing a native Android application for managing personal records and contact-linked entries.",
+      achievements: [
+        "Designed a system to associate financial and custom records with individual contacts.",
+        "Implemented local data storage to support offline-first usage.",
+        "Integrated Firebase Authentication for secure user access.",
+        "Implemented Firestore synchronization for backup and multi-device data consistency.",
+        "Designed data flow enabling seamless synchronization between local storage and cloud backend."
+      ]
     },
     {
-      title: "MedicMitra",
-      tech: ["Java", "Spring Boot", "PostgreSQL"],
-      description: "Multi-language medicine information backend. Designed schemas to support localization (Nepali/Maithali) and efficient data retrieval.",
-      link: "https://github.com/Apil-Khadka/MedicMitra_Backend"
+      title: "TEDxNCIT 2026 — Event Management Platform",
+      period: "Nov 2025 - Jan 2026",
+      tech: ["Astro", "TypeScript", "TailwindCSS", "Linux VPS", "Git"],
+      description: "Deployed and managed production website built with Astro, TypeScript, and TailwindCSS.",
+      achievements: [
+        "Configured Linux VPS infrastructure including domain setup, SSL certificates, and basic security hardening.",
+        "Refactored codebase for production optimization and performance improvements.",
+        "Maintained version control and deployed updates to the live environment."
+      ],
+      links: {
+        live: "https://tedx.ncit.edu.np/",
+        github: "https://github.com/Apil-Khadka/TEDxNCIT_2026"
+      }
     },
     {
-      title: "Toura",
-      tech: ["Backend Architecture", "API Design"],
-      description: "Backend system for a tourist-guide connection platform. Modeled the user interaction flow and booking system state machine.",
-      link: "https://gitlab.com/aspiring-creators/toura"
+      title: "Toura — Tourist–Guide Connection Platform",
+      period: "2025",
+      tech: ["Spring Boot", "PostgreSQL", "React Native", "TypeScript"],
+      description: "Designed a two-sided platform enabling tourists to discover and book local guides.",
+      achievements: [
+        "Built Spring Boot REST API handling authentication, guide profiles, search, and booking workflows.",
+        "Implemented JWT-based authentication with role-based access control for tourists and guides.",
+        "Designed normalized PostgreSQL schema for users, guides, locations, bookings, and reviews.",
+        "Implemented guide search with filtering by location, specialization, ratings, and availability.",
+        "Developed feature allowing guides to add tourist attractions and tours with location-based pricing.",
+        "Built booking workflow with time-slot validation and conflict prevention.",
+        "Developed React Native + TypeScript frontend with separate dashboards for tourists and guides."
+      ]
     },
     {
-      title: "Random Quotes App",
-      tech: ["C++", "Qt", "Desktop App"],
-      description: "Desktop application for displaying random quotes, built with the Qt framework to explore C++ GUI development.",
-      link: "https://github.com/Apil-Khadka/RandomQuotes-QT"
+      title: "Medimanage — Hospital Operations Management",
+      period: "2024",
+      tech: ["Laravel", "MySQL", "Vue.js"],
+      description: "Developed a hospital management system covering patients, appointments, prescriptions, and billing.",
+      achievements: [
+        "Built Laravel REST API managing core hospital workflows.",
+        "Designed normalized MySQL schema handling complex healthcare relationships.",
+        "Implemented role-based access control for administrators, doctors, nurses, and reception staff.",
+        "Built appointment scheduling with conflict detection and availability management.",
+        "Developed Vue.js frontend with department-specific dashboards and real-time updates."
+      ]
     },
     {
-      title: "Sucardi - Car Game",
-      tech: ["Godot", "GDScript", "Game Dev"],
-      description: "2D car racing game developed using the Godot engine. Implemented physics-based movement and collision detection.",
-      link: "https://github.com/Apil-Khadka/sucardi"
+      title: "AccProBook — Business Financial Transaction Management",
+      period: "Jun 2024",
+      tech: ["PHP", "MySQL", "Custom MVC"],
+      description: "Built an accounting platform prototype during a 48-hour hackathon.",
+      achievements: [
+        "Implemented a custom MVC framework with routing, controllers, and REST-style APIs.",
+        "Designed MySQL schema enforcing double-entry bookkeeping validation.",
+        "Developed CRUD workflows for companies, customers, invoices, credits, and debits.",
+        "Built real-time dashboard for invoice and payment tracking.",
+        "Implemented automated PDF financial report generation."
+      ],
+      links: {
+        demo: "https://lavapp.helioho.st/",
+        github: "https://github.com/Apil-Khadka/AccProBook"
+      }
+    },
+    {
+      title: "CourseManager — Online Learning Platform",
+      period: "2024",
+      tech: ["Laravel", "React", "MySQL"],
+      description: "Built full-stack e-learning platform for structured course delivery.",
+      achievements: [
+        "Developed Laravel API supporting nested courses and lesson hierarchies.",
+        "Implemented quiz engine with automatic scoring and result storage.",
+        "Built enrollment system with role-based access control for instructors and students.",
+        "Implemented progress tracking across courses and lessons.",
+        "Developed React frontend with course catalog, lesson viewer, and interactive quizzes."
+      ],
+      links: {
+        github: "https://github.com/Apil-Khadka/Course-Manager"
+      }
+    },
+    {
+      title: "MedicMitra — Multi-language Medicine Information",
+      period: "2024",
+      tech: ["Spring Boot", "MySQL", "React"],
+      description: "Developed medicine information platform supporting multiple languages.",
+      achievements: [
+        "Built Spring Boot API for multilingual content delivery.",
+        "Designed MySQL schema supporting dynamic translations with data consistency.",
+        "Implemented search functionality with category-based filtering.",
+        "Built React interface with seamless language switching and responsive design."
+      ]
+    },
+    {
+      title: "Blog Manager — Content Publishing Platform",
+      period: "2024",
+      tech: ["Spring Boot", "MySQL", "JWT"],
+      description: "Built secure blogging platform with role-based content management.",
+      achievements: [
+        "Developed Spring Boot REST API with JWT authentication and refresh token support.",
+        "Implemented CRUD operations for posts, categories, and comments.",
+        "Enforced role-based authorization for content publishing and moderation.",
+        "Optimized MySQL queries for pagination and efficient content retrieval."
+      ]
     }
   ]
 };
