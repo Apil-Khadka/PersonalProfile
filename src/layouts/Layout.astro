@@ -150,6 +150,16 @@ const {
     list-style: none;
   }
 
+  @media (max-width: 768px) {
+    .nav ul {
+      gap: var(--space-4);
+    }
+
+    .nav a {
+      font-size: 0.8rem;
+    }
+  }
+
   .nav a {
     font-size: 0.9rem;
     color: var(--color-text-muted);
@@ -201,5 +211,23 @@ const {
     font-size: 0.875rem;
     margin: 0;
     color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 1rem;
+    }
+
+    .footer {
+      padding: var(--space-8) 0;
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+    }
   }
 </style>

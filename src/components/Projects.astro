@@ -247,6 +247,46 @@ import { resume } from "../data/resume";
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .project-card {
+      padding: var(--space-5);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
+    }
+
+    .link-btn {
+      padding: var(--space-3) var(--space-4);
+      font-size: 0.85rem;
+      min-height: 44px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .project-card {
+      padding: var(--space-4);
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+    }
+
+    .project-links {
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .link-btn {
+      flex: 1 1 auto;
+      min-width: 120px;
+    }
+
+    .achievements li {
+      font-size: 0.85rem;
+      padding-left: var(--space-5);
     }
   }
 </style>

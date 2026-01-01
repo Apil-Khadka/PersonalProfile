@@ -106,6 +106,26 @@ h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
 h2 { font-size: 1.75rem; margin-bottom: var(--space-4); letter-spacing: -0.01em; }
 h3 { font-size: 1.25rem; margin-bottom: var(--space-2); }
 
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 0.9rem; }
+
+  html {
+    font-size: 14px;
+  }
+}
+
 p {
   color: var(--color-text-muted);
   margin-bottom: var(--space-4);
@@ -119,8 +139,26 @@ p {
   padding: 0 var(--space-4);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-3);
+  }
+}
+
 .section {
   padding: var(--space-12) 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-6) 0;
+  }
 }
 
 .grid {
@@ -220,6 +258,18 @@ p {
   left: 100%;
 }
 
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-5);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-4);
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -235,6 +285,8 @@ p {
   gap: var(--space-2);
   position: relative;
   overflow: hidden;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .btn::before {
@@ -256,6 +308,12 @@ p {
 
 .btn:hover::before {
   left: 100%;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: var(--space-3) var(--space-5);
+  }
 }
 
 /* Motion */

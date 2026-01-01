@@ -31,7 +31,8 @@ import { resume } from "../data/resume";
           <h4>Email</h4>
           <p>
             <a href={`mailto:${resume.personalInfo.email}`}
-              >{resume.personalInfo.email}</a>
+              >{resume.personalInfo.email}</a
+            >
           </p>
         </div>
         <div class="highlight-item">
@@ -39,7 +40,8 @@ import { resume } from "../data/resume";
           <h4>Website</h4>
           <p>
             <a href={`https://${resume.personalInfo.website}`} target="_blank"
-              >{resume.personalInfo.website}</a>
+              >{resume.personalInfo.website}</a
+            >
           </p>
         </div>
       </div>
@@ -138,6 +140,46 @@ import { resume } from "../data/resume";
 
     .about-highlights {
       flex-direction: row;
+    }
+
+    .content p {
+      font-size: 1rem;
+    }
+
+    .highlight-item {
+      flex: 1;
+      padding: var(--space-3);
+    }
+
+    .highlight-item h4 {
+      font-size: 0.8rem;
+    }
+
+    .highlight-item p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-wrapper {
+      gap: var(--space-6);
+    }
+
+    .about-content h3 {
+      margin-bottom: var(--space-4);
+    }
+
+    .about-highlights {
+      flex-direction: column;
+    }
+
+    .highlight-item {
+      padding: var(--space-3);
+    }
+
+    .content p {
+      font-size: 0.95rem;
+      margin-bottom: var(--space-4);
     }
   }
 </style>
