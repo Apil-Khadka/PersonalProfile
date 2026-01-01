@@ -6,6 +6,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://apil-portfolio.vercel.app',
+	site: 'https://apilkhadka.com.np',
 	integrations: [mdx(), sitemap()],
 });
