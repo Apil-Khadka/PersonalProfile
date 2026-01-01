@@ -2,57 +2,153 @@
 import { resume } from "../data/resume";
 ---
 
-<section id="skills" class="section">
+<section id="skills" class="section skills-section">
   <div class="container">
-    <h3>Technical Skills</h3>
-    
+    <div class="section-header">
+      <h3>Technical Skills</h3>
+      <p class="section-desc">Languages and tools I work with daily</p>
+    </div>
+
     <div class="grid skills-grid">
+      {
+        resume.skills.languages && (
+          <div class="skill-category">
+            <h4>
+              <span class="icon">🔤</span>Languages
+            </h4>
+            <div class="tags">
+              {resume.skills.languages.map((skill) => (
+                <span class="tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
       <div class="skill-category">
-        <h4>Backend</h4>
+        <h4><span class="icon">⚙️</span>Backend</h4>
         <div class="tags">
-          {resume.skills.backend.map(skill => <span class="tag">{skill}</span>)}
+          {
+            resume.skills.backend.map((skill) => (
+              <span class="tag">{skill}</span>
+            ))
+          }
         </div>
       </div>
-      
+
       <div class="skill-category">
-        <h4>Database</h4>
+        <h4><span class="icon">🎨</span>Frontend</h4>
         <div class="tags">
-          {resume.skills.database.map(skill => <span class="tag">{skill}</span>)}
+          {
+            resume.skills.frontend.map((skill) => (
+              <span class="tag">{skill}</span>
+            ))
+          }
         </div>
       </div>
-      
+
       <div class="skill-category">
-        <h4>Infrastructure & Tools</h4>
+        <h4><span class="icon">💾</span>Databases</h4>
         <div class="tags">
-          {resume.skills.infrastructure.map(skill => <span class="tag">{skill}</span>)}
+          {
+            resume.skills.database.map((skill) => (
+              <span class="tag">{skill}</span>
+            ))
+          }
         </div>
       </div>
-      
-      <div class="skill-category">
-        <h4>Frontend</h4>
-        <div class="tags">
-          {resume.skills.frontend.map(skill => <span class="tag">{skill}</span>)}
-        </div>
-      </div>
+
+      {
+        resume.skills.devops && (
+          <div class="skill-category">
+            <h4>
+              <span class="icon">🚀</span>DevOps & Tools
+            </h4>
+            <div class="tags">
+              {resume.skills.devops.map((skill) => (
+                <span class="tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {
+        resume.skills.cloud && (
+          <div class="skill-category">
+            <h4>
+              <span class="icon">☁️</span>Cloud
+            </h4>
+            <div class="tags">
+              {resume.skills.cloud.map((skill) => (
+                <span class="tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </section>
 
 <style>
+  .skills-section {
+    position: relative;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-12);
+    text-align: center;
+  }
+
+  .section-desc {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-8);
   }
 
-  h4 {
-    font-size: 1rem;
-    margin-bottom: var(--space-3);
-    color: var(--color-primary);
+  .skill-category {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    padding: var(--space-6);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skill-category:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 30px rgba(0, 217, 255, 0.15);
+  }
+
+  .skill-category h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-4);
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .skill-category h4 .icon {
+    font-size: 1.3rem;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

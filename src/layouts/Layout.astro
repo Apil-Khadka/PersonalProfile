@@ -4,142 +4,198 @@ import { resume } from "../data/resume";
 import ThemeToggle from "../components/ThemeToggle.astro";
 
 interface Props {
-    title?: string;
-    description?: string;
+  title?: string;
+  description?: string;
 }
 
 const {
-    title = `${resume.personalInfo.name} - ${resume.personalInfo.role}`,
-    description = resume.personalInfo.summary,
+  title = `${resume.personalInfo.name} - ${resume.personalInfo.role}`,
+  description = resume.personalInfo.summary,
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-        <!-- SEO -->
-        <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-        <meta name="robots" content="index, follow" />
+    <!-- SEO -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta name="robots" content="index, follow" />
 
-        <!-- Open Graph -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={Astro.url} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={resume.personalInfo.avatar} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resume.personalInfo.avatar} />
 
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={Astro.url} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={resume.personalInfo.avatar} />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={resume.personalInfo.avatar} />
 
-        <!-- Preload Inter Font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap"
-            rel="stylesheet"
-        />
+    <!-- Preload Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Theme Script to prevent flash -->
-        <script is:inline>
-            const theme = (() => {
-                if (
-                    typeof localStorage !== "undefined" &&
-                    localStorage.getItem("theme")
-                ) {
-                    return localStorage.getItem("theme");
-                }
-                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                    return "dark";
-                }
-                return "light";
-            })();
-            document.documentElement.setAttribute("data-theme", theme);
-        </script>
-    </head>
-    <body>
-        <header class="header">
-            <div class="container flex-between">
-                <a href="/" class="logo text-mono font-bold"
-                    >{resume.personalInfo.name}</a
-                >
-                <nav class="nav">
-                    <ul class="flex-center">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><ThemeToggle /></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+    <!-- Theme Script to prevent flash -->
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container flex-between">
+        <a href="/" class="logo text-mono font-bold"
+          >{resume.personalInfo.name}</a
+        >
+        <nav class="nav">
+          <ul class="flex-center">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><ThemeToggle /></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        <main>
-            <slot />
-        </main>
+    <main>
+      <slot />
+    </main>
 
-        <footer class="footer">
-            <div class="container">
-                <p>
-                    &copy; {new Date().getFullYear()}
-                    {resume.personalInfo.name}. Built with Astro.
-                </p>
-            </div>
-        </footer>
-    </body>
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; {new Date().getFullYear()}
+          {resume.personalInfo.name}. Built with Astro.
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <style>
-    .header {
-        height: var(--header-height);
-        display: flex;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        background-color: var(--color-bg);
-        z-index: 10;
-        border-bottom: 1px solid var(--color-border);
-    }
+  .header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-bg),
+      var(--color-bg-subtle)
+    );
+    z-index: 10;
+    border-bottom: 2px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    background-color: rgba(250, 250, 250, 0.95);
+  }
 
-    .logo {
-        font-weight: 700;
-        letter-spacing: -0.02em;
-    }
+  [data-theme="dark"] .header {
+    background-color: rgba(13, 17, 23, 0.95);
+  }
 
-    .nav ul {
-        margin: 0;
-        padding: 0;
-        gap: var(--space-6);
-    }
+  .logo {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.2rem;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+  }
 
-    .nav a {
-        font-size: 0.9rem;
-        color: var(--color-text-muted);
-        font-weight: 500;
-    }
+  .logo:hover {
+    filter: brightness(1.2);
+  }
 
-    .nav a:hover {
-        color: var(--color-text-main);
-    }
+  .nav ul {
+    margin: 0;
+    padding: 0;
+    gap: var(--space-8);
+    list-style: none;
+  }
 
-    .footer {
-        padding: var(--space-8) 0;
-        margin-top: auto;
-        border-top: 1px solid var(--color-border);
-        text-align: center;
-    }
+  .nav a {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+  }
 
-    .footer p {
-        font-size: 0.875rem;
-        margin: 0;
-    }
+  .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
+    transition: width 0.3s ease;
+  }
+
+  .nav a:hover {
+    color: var(--color-primary);
+  }
+
+  .nav a:hover::after {
+    width: 100%;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .footer {
+    padding: var(--space-12) 0;
+    margin-top: auto;
+    border-top: 2px solid var(--color-border);
+    text-align: center;
+    background: linear-gradient(
+      135deg,
+      var(--color-bg),
+      var(--color-bg-subtle)
+    );
+  }
+
+  .footer p {
+    font-size: 0.875rem;
+    margin: 0;
+    color: var(--color-text-muted);
+  }
 </style>

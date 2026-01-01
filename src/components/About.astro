@@ -2,24 +2,142 @@
 import { resume } from "../data/resume";
 ---
 
-<section id="about" class="section">
+<section id="about" class="section about-section">
   <div class="container">
-    <h3>About Me</h3>
-    <div class="content">
-      <p>
-        I am a Computer Engineering student and Backend Engineer based in Nepal.
-        My passion lies in architecting scalable systems and solving complex engineering challenges.
-      </p>
-      <p>
-        Currently, I am focused on mastering distributed systems, database internals, and high-performance APIs.
-        I value code quality, maintainability, and thoughtful design over quick hacks.
-      </p>
+    <div class="about-wrapper">
+      <div class="about-content">
+        <h3>About Me</h3>
+        <div class="content">
+          <p>
+            I am a Computer Engineering student and Backend Engineer based in
+            Nepal. My passion lies in architecting scalable systems and solving
+            complex engineering challenges.
+          </p>
+          <p>
+            Currently, I am focused on mastering distributed systems, database
+            internals, and high-performance APIs. I value code quality,
+            maintainability, and thoughtful design over quick hacks.
+          </p>
+        </div>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon">📍</div>
+          <h4>Location</h4>
+          <p>{resume.personalInfo.location}</p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">📧</div>
+          <h4>Email</h4>
+          <p>
+            <a href={`mailto:${resume.personalInfo.email}`}
+              >{resume.personalInfo.email}</a>
+          </p>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🔗</div>
+          <h4>Website</h4>
+          <p>
+            <a href={`https://${resume.personalInfo.website}`} target="_blank"
+              >{resume.personalInfo.website}</a>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
+  .about-section {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      var(--color-bg-subtle),
+      var(--color-bg)
+    );
+    border-top: 2px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .about-content h3 {
+    margin-bottom: var(--space-6);
+  }
+
   .content {
     max-width: 65ch;
+  }
+
+  .content p {
+    margin-bottom: var(--space-6);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .highlight-item {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    padding: var(--space-4);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .highlight-item:hover {
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+    box-shadow: 0 10px 20px rgba(0, 217, 255, 0.1);
+  }
+
+  .highlight-icon {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .highlight-item h4 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .highlight-item p {
+    margin: 0;
+    font-weight: 500;
+    color: var(--color-text-main);
+  }
+
+  .highlight-item a {
+    color: var(--color-primary);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .highlight-item a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .about-wrapper {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .about-highlights {
+      flex-direction: row;
+    }
   }
 </style>

@@ -2,50 +2,217 @@
 import { resume } from "../data/resume";
 ---
 
-<section id="projects" class="section">
+<section id="projects" class="section projects-section">
   <div class="container">
-    <h3>Featured Projects</h3>
-    
+    <div class="section-header">
+      <h3>Featured Projects</h3>
+      <p class="section-desc">Showcasing my latest work and experiments</p>
+    </div>
+
     <div class="grid projects-grid">
-      {resume.projects.map(project => (
-        <article class="card project-card">
-          <header>
-            <div class="flex-between">
-              <h4>
-                <a href={project.link} target="_blank" rel="noopener noreferrer">
-                  {project.title}
-                </a>
-              </h4>
-              <a href={project.link} class="text-sm text-primary" target="_blank" rel="noopener noreferrer">View Code &rarr;</a>
-            </div>
-            <div class="tech-stack flex">
-                {project.tech.map(t => <span class="text-mono text-sm text-muted">{t}</span>)}
-            </div>
-          </header>
-          <p>{project.description}</p>
-        </article>
-      ))}
+      {
+        resume.projects.map((project, index) => (
+          <article class="card project-card" style={`--index: ${index}`}>
+            <header>
+              <div class="project-header">
+                <h4>
+                  <a
+                    href={project.links?.github || project.links?.live || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.title}
+                  </a>
+                </h4>
+                <span class="period">{project.period}</span>
+              </div>
+              <div class="tech-stack flex">
+                {project.tech.map((t) => (
+                  <span class="text-mono text-sm tag">{t}</span>
+                ))}
+              </div>
+            </header>
+            <p class="description">{project.description}</p>
+            {project.achievements && (
+              <ul class="achievements">
+                {project.achievements.slice(0, 2).map((achievement) => (
+                  <li>{achievement}</li>
+                ))}
+              </ul>
+            )}
+            {(project.links?.github || project.links?.live) && (
+              <div class="project-links">
+                {project.links?.github && (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-btn"
+                  >
+                    GitHub →
+                  </a>
+                )}
+                {project.links?.live && (
+                  <a
+                    href={project.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-btn"
+                  >
+                    Live Site →
+                  </a>
+                )}
+              </div>
+            )}
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .projects-section {
+    position: relative;
   }
 
-  .project-card header {
-    margin-bottom: var(--space-3);
+  .section-header {
+    margin-bottom: var(--space-12);
+    text-align: center;
+  }
+
+  .section-desc {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.5s ease-out forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+    opacity: 0;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .project-header {
+    margin-bottom: var(--space-2);
+  }
+
+  .project-card h4 {
+    margin: 0;
   }
 
   .project-card h4 a {
+    background: linear-gradient(
+      135deg,
+      var(--color-text-main),
+      var(--color-accent)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+  }
+
+  .project-card h4 a:hover {
+    filter: brightness(1.2);
+  }
+
+  .period {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-bg-subtle);
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .tech-stack {
+    margin-top: var(--space-3);
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .description {
+    flex-grow: 1;
+    margin-top: var(--space-3);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .achievements {
+    list-style: none;
+    margin: var(--space-4) 0;
+    padding: 0;
+  }
+
+  .achievements li {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-2);
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .achievements li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    border-radius: 8px;
+    border: 2px solid var(--color-primary);
+    transition: all 0.2s ease;
+    background: transparent;
     text-decoration: none;
   }
-  
-  .tech-stack {
-    margin-top: var(--space-2);
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    gap: var(--space-3);
+
+  .link-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
