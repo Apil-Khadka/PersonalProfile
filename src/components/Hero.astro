@@ -5,7 +5,29 @@ const optimizedAvatar = resume.personalInfo.avatar.replace(
   "/upload/",
   "/upload/f_auto,q_auto,g_auto:face,w_420,h_480,c_fill/"
 );
+
+const personSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  name: resume.personalInfo.name,
+  jobTitle: resume.personalInfo.role,
+  url: `https://${resume.personalInfo.website}`,
+  email: resume.personalInfo.email,
+  telephone: resume.personalInfo.phone,
+  image: resume.personalInfo.avatar,
+  sameAs: [
+    resume.personalInfo.socials.github,
+    resume.personalInfo.socials.linkedin,
+  ],
+  description: resume.personalInfo.seoSummary,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: resume.personalInfo.location,
+  },
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 <section id="hero" class="section hero animate-in">
   <div class="container hero-wrapper">
@@ -107,7 +129,7 @@ const optimizedAvatar = resume.personalInfo.avatar.replace(
           fetchpriority="high"
           decoding="async"
           crossorigin="anonymous"
-          alt={resume.personalInfo.name}
+          alt={`Photo of ${resume.personalInfo.name}`}
         />
       </div>
     </div>
