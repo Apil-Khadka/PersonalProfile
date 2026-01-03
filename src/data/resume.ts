@@ -9,7 +9,10 @@ export const resume = {
     avatar: "https://res.cloudinary.com/dglsdyi9e/image/upload/v1766247919/qpcmhwwohdu77mjf33v1.jpg",
     socials: {
       linkedin: "https://www.linkedin.com/in/apil-khadka/",
-      github: "https://github.com/Apil-Khadka"
+      github: "https://github.com/Apil-Khadka",
+      instagram: "https://www.instagram.com/apil.me/",
+      facebook: "https://www.facebook.com/apil.me",
+      blog: "https://blog.apilkhadka.com.np/"
     },
     summary: "Backend-oriented full-stack developer experienced in building secure, scalable systems with Spring Boot and Laravel, complemented by modern frontend frameworks such as React and Vue. Designed and implemented RESTful APIs, role-based authentication, and relational database schemas across 5+ projects. Strong understanding of system design, API security, and Linux server administration.",
     seoSummary: "Backend-focused full-stack developer with expertise in Spring Boot, Laravel, React, and Vue."
