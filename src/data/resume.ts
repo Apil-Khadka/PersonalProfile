@@ -99,7 +99,7 @@ export const resume = {
         "Maintained version control and deployed updates to the live environment."
       ],
       links: {
-        live: "https://tedxncit.com/",
+        live: "https://tedx.ncit.edu.np/",
         github: "https://github.com/Apil-Khadka"
       }
     },
